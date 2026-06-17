@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Save Selection as Markdown",
+  "version": "0.1",
+  "description": "Save a selected fragment of a page as Markdown, downloading images next to the file (scaffold).",
+  "permissions": ["activeTab", "scripting", "downloads", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Save selection as Markdown"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
